@@ -3,11 +3,11 @@ nbproject/*
 !nbproject/project.properties
 !nbproject/project.xml
 **/nbproject/private/
-build/
 nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+build/
 
 ### Windows ###
 # Windows thumbnail cache files
