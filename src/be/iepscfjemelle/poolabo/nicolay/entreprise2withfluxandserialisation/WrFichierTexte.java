@@ -72,6 +72,7 @@ public class WrFichierTexte implements Prog {
             // Création du flux de sortie vers un fichier texte
             PrintWriter sortie = new PrintWriter(new FileWriter(nomfich));
             
+            //REMPLACER LA BOUCLE PAR UN ITERATEUR
             //Boucle qui récupère mes objets dans mon ArrayList et les mets dans mon fichier.txt ouvert.
             for(int i=0; i<al.size(); i++){
                 sortie.println(al.get(i));
