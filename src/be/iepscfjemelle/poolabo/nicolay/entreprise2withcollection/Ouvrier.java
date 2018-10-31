@@ -1,4 +1,4 @@
-package be.iepscfjemelle.poolabo.nicolay.entreprise2withfluxandserialisation;
+package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollection;
 
 import java.io.Serializable;
 
@@ -6,13 +6,13 @@ import java.io.Serializable;
  *
  * @author Frederic Nicolay 2ème Bachelier Informatique
  */
-public class Comptable extends Personnes implements Serializable{
+public class Ouvrier extends Personnes implements Serializable{
     
     // ***********************  Attributs ***************************************
     /**
-     * Attributs spécifique au Comptable
+     * Attributs spécifique a l'ouvrier
      */
-    public String fonction = "Comptable";
+    public String fonction = "Ouvrier";
 
     // ***********************  Constructeurs ***************************************
     /**
@@ -23,7 +23,7 @@ public class Comptable extends Personnes implements Serializable{
      * @param nom
      * @param fonction
      */
-    public Comptable(String numeroNational, String prenom, String nom, String fonction) {
+    public Ouvrier(String numeroNational, String prenom, String nom, String fonction) {
         super(numeroNational, prenom, nom);
         this.fonction = fonction;
     }
@@ -31,12 +31,12 @@ public class Comptable extends Personnes implements Serializable{
     /**
      * Constructeur par défaut
      */
-    public Comptable() {
+    public Ouvrier() {
     }
 
-    //******************************** Getters and setters *******************************************
+    //**************************** Getters and setters ***********************************************
     /**
-     * Getters and Setters propore à cette Classe 
+     * Getters and Setters propore à cette Classe
      * @return
      */
     public String getFonction() {
@@ -53,12 +53,12 @@ public class Comptable extends Personnes implements Serializable{
      */
     @Override
     public void joue() {
-        System.out.println("Joue au tennis.");    
+        System.out.println("Joue au football.");    
     }
 
     @Override
     public void manger() {
-    System.out.println("Mange au restaurant avec le directeur."); 
+        System.out.println("Mange sur le chantier .");    
     }
     
     /**
@@ -68,6 +68,6 @@ public class Comptable extends Personnes implements Serializable{
     @Override
     public String toString() {
         return "Numéro National: " + this.numeroNational + ", Prénom: " + this.prenom + 
-                ", Nom: " + this.nom + ", Fonction: " + this.fonction + ", Job description: s'occupe de la facturation.";
-    }   
+                ", Nom: " + this.nom + ", Fonction: " + this.fonction + ", Job description: travail sur chantier.";
+    }
 }

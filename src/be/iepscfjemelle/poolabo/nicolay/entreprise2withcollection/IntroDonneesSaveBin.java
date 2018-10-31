@@ -1,4 +1,4 @@
-package be.iepscfjemelle.poolabo.nicolay.entreprise2withfluxandserialisation;
+package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollection;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

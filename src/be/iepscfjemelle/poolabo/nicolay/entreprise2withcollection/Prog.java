@@ -1,4 +1,4 @@
-package be.iepscfjemelle.poolabo.nicolay.entreprise2withfluxandserialisation;
+package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollection;
 
 /**
  * Méthodes principales utilisées dans mon programme
