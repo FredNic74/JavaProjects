@@ -38,7 +38,7 @@ public class WrFichierTexte implements Prog {
      *
      * @param programme
      */
-    ArrayList al = new ArrayList();
+    ArrayList<Personnes> al = new ArrayList();
 
     /**
      * Méthode qui lis un fichier binaire, stock les objets personnes dans une ArrayList,
