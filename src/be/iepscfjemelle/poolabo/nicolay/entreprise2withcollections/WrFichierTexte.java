@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-//import java.util.Iterator;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -74,14 +74,12 @@ public class WrFichierTexte implements Prog {
             try ( // Création du flux de sortie vers un fichier texte
                     PrintWriter sortie = new PrintWriter(new FileWriter(nomfich))) {
                 //Boucle qui récupère mes objets dans mon ArrayList via un itérateur et les mets dans mon fichier.txt.
-                /*Iterator<Personnes> iter = al.iterator();
+                Iterator<Personnes> iter = al.iterator();
                 while (iter.hasNext()){
                     Personnes pers = iter.next();
                     sortie.println(pers);
-                }   */
-                for(int i=0; i<al.size(); i++){
-                sortie.println(al.get(i));
-                }
+                }   
+                
                 System.out.println("Vous trouverez le fichier.txt dans les répertoires du programme.\n");
                 // Fermeture du flux
             }
