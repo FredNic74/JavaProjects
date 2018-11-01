@@ -1,4 +1,4 @@
-package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollection;
+package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollections;
 
 import java.io.Serializable;
 
@@ -20,6 +20,11 @@ public abstract class Personnes implements IntPersonne, Serializable{
      * Nom de la personne
      */
     public String nom;
+    /**
+     * Fonction de la personne
+     */
+    public String fonction;
+    
     
     // ***********************  Constructeurs ***************************************
     /**
@@ -28,11 +33,13 @@ public abstract class Personnes implements IntPersonne, Serializable{
      * @param numeroNational
      * @param prenom
      * @param nom
+     * @param fonction
      */
-    public Personnes(String numeroNational, String prenom, String nom) {
+    public Personnes(String numeroNational, String prenom, String nom, String fonction) {
         this.numeroNational = numeroNational;
         this.prenom = prenom;
         this.nom = nom;
+        this.fonction = fonction;
     }
     
     /**
@@ -68,6 +75,14 @@ public abstract class Personnes implements IntPersonne, Serializable{
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public String getFonction() {
+        return fonction;
+    }
+
+    public void setFonction(String fonction) {
+        this.fonction = fonction;
     }
     
 //******************************* Méthodes ******************************************

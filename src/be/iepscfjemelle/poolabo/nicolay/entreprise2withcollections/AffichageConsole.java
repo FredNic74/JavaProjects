@@ -1,14 +1,10 @@
-package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollection;
+package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollections;
 
 import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,7 +12,7 @@ import java.util.logging.Logger;
  *
  * @author Frederic Nicolay 2ème Bachelier Informatique
  */
-public class WrFichierTexte implements Prog {
+public class AffichageConsole implements Prog {
 
     /**
      * Objet pour récuperer chaque objet du fichier binaire
@@ -29,61 +25,36 @@ public class WrFichierTexte implements Prog {
     protected boolean flag = false;
 
     /**
-     * Nom du fichier utilisé
-     */
-    private String nomfich;
-
-    /**
-     * Arraylist pour y stocker les objet lu dans le fichier binair, s'adaptera
-     * au nombre d'objet
-     *
-     * @param programme
-     */
-    ArrayList<Personnes> al = new ArrayList();
-
-    /**
-     * Méthode qui lis un fichier binaire, stock les objets personnes dans une ArrayList,
-     * ensuite parcours de l'arraylist pour écrire les objets dans un fichier texte.
-     * @param programme 
+     * Méthode qui parcour mon fichier binaire et affiche le contenu dans la
+     * console
      */
     @Override
     public void execute(MenuDepart programme) {
         ObjectInputStream entree = null;
         try {
+            System.out.println("================================================================");
+            System.out.println("Liste des personnes de l'entreprise:");
+            System.out.println("================================================================");
 
             // Crétion du flux d'entrée
             entree = new ObjectInputStream(new FileInputStream("fichier.dat"));
 
-            // Boucle de lecture du fichier binaire, sortie lorsu'il n'y a plus d'objet
+            // Boucle de lecture, sortie lorsu'il n'y a plus d'objet
             while (!flag) {
                 try {
                     // Lecture de l'objet
                     pers = (Personnes) entree.readObject();
-                    // introduction de l'objet dans mon ArrayList
-                    al.add(pers);
+                    // Affichage des caractéristiques de l'objet
+                    System.out.println(pers.toString());
+                    System.out.println("------------------------------------------------------------");
                 } catch (EOFException e) {
                     // Sortie de boucle
                     flag = true;
                 }
-            }
-            entree.close();// Fermeture du flux            
-            
-            // Initialisation des variables
-            this.nomfich = "fichier.txt";
-            
-            try ( // Création du flux de sortie vers un fichier texte
-                    PrintWriter sortie = new PrintWriter(new FileWriter(nomfich))) {
-                //Boucle qui récupère mes objets dans mon ArrayList via un itérateur et les mets dans mon fichier.txt.
-                Iterator<Personnes> iter = al.iterator();
-                while (iter.hasNext()){
-                    Personnes employé = iter.next();
-                    sortie.println(employé);
-                }   
-                
-                System.out.println("Vous trouverez le fichier.txt dans les répertoires du programme.\n");
-                // Fermeture du flux
-            }
+            }           
+            entree.close();// Fermeture du flux
             this.endProg(programme);//appel de la méthode fin de programme
+            
             //Gestion des erreurs ajouté automatiquement par Netbeans ?????  
         } catch (FileNotFoundException ex) {
             Logger.getLogger(AffichageConsole.class.getName()).log(Level.SEVERE, null, ex);

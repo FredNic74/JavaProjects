@@ -1,4 +1,4 @@
-package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollection;
+package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollections;
 
 /**
  * Méthodes principales utilisées dans mon programme

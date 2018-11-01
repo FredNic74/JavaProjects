@@ -1,4 +1,4 @@
-package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollection;
+package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollections;
 
 import java.io.Serializable;
 
@@ -12,7 +12,7 @@ public class Directeur extends Personnes implements Serializable{
      * Attributs spécifique au Directeur
      */
     public String portefeuille = "Ca frôle l'indécence!";;
-    public String fonction = "Directeur";
+    //public String fonction = "Directeur";
     
     // ***********************  Constructeurs ***************************************
     /**
@@ -25,9 +25,8 @@ public class Directeur extends Personnes implements Serializable{
      * @param portefeuille
      */  
     public Directeur(String numeroNational, String prenom, String nom, String fonction, String portefeuille) {
-        super(numeroNational, prenom, nom);//Super pour reprendre les attributs de la classe parent (Personnes) dans le constructeur
+        super(numeroNational, prenom, nom, fonction);//Super pour reprendre les attributs de la classe parent (Personnes) dans le constructeur
         this.portefeuille = portefeuille;//ajout des deux attributs spécifique à cette classe dans le constructeur.
-        this.fonction = fonction;
     }
 
     /**
@@ -47,14 +46,6 @@ public class Directeur extends Personnes implements Serializable{
     
     public void setPortefeuille(String portefeuille) {
         this.portefeuille = portefeuille;
-    }
-
-    public String getFonction() {
-        return fonction;
-    }
-
-    public void setFonction(String fonction) {
-        this.fonction = fonction;
     }
     
     //******************************* Méthodes ******************************************

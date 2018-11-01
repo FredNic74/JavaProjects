@@ -1,4 +1,4 @@
-package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollection;
+package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollections;
 
 import java.io.Serializable;
 
@@ -12,7 +12,7 @@ public class Secretaire extends Personnes implements Serializable{
     /**
      * Attributs spécifique au Secretaire
      */
-    public String fonction = "Secretaire";
+    
 
     // ***********************  Constructeurs ***************************************
     /**
@@ -24,8 +24,7 @@ public class Secretaire extends Personnes implements Serializable{
      * @param fonction
      */
     public Secretaire(String numeroNational, String prenom, String nom, String fonction) {
-        super(numeroNational, prenom, nom);
-        this.fonction = fonction;
+        super(numeroNational, prenom, nom, fonction);
     }
 
     /**
@@ -35,17 +34,6 @@ public class Secretaire extends Personnes implements Serializable{
     }
 
     //*************************** Getters and setters ************************************************
-    /**
-     * Getters and Setters propore à cette Classe
-     * @return
-     */
-    public String getFonction() {
-        return fonction;
-    }
-
-    public void setFonction(String fonction) {
-        this.fonction = fonction;
-    }
 
     //******************************* Méthodes ******************************************
     /**
