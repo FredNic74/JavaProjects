@@ -26,12 +26,14 @@ public class IntroDonneesSaveBin implements Prog {
     @Override
     public void execute(MenuDepart programme) {
         //Création d'une haspMap
-        HashMap<String, String> myHashMap = new HashMap<>();
+        HashMap<Integer, String> mesFonctions = new HashMap<>();
         // Insertion des valeurs dans la liste
-        myHashMap.put("1", "directeur");
-        myHashMap.put("2", "comptable");
-        myHashMap.put("3", "secretaire");
-        myHashMap.put("4", "ouvrier");
+        mesFonctions.put(1, "Directeur");
+        mesFonctions.put(2, "Comptable");
+        mesFonctions.put(3, "Secretaire");
+        mesFonctions.put(4, "Ouvrier");
+        
+       
 
         ObjectOutputStream sortie = null;
         try {//Gestion des erreurs ajouté automatiquement par Netbeans  
@@ -40,6 +42,8 @@ public class IntroDonneesSaveBin implements Prog {
             for (int i = 0; i < tabPersonnel.length; i++) {
 
                 int choix = menuFonction();//Appel de ma méthode MenuFonction
+                //String fonction = mesFonctions.get(choix);
+                
                 System.out.println("\n");
                 //Switch pour remplir les attributs d'une classe en fonction du choix fait avant
                 //A FAIRE: CREER DES VARIABLES NUMNATIONAL,PRENOM,NOM ET LES UTILISER COMME PARAMETRE DANS MON CONSTRUCTEUR PERSONNE OU DIRECTEUR VOIR SAMPLE ROMU ENTREPRISE2
@@ -56,8 +60,9 @@ public class IntroDonneesSaveBin implements Prog {
                         directeur.setPrenom(Clavier.lireString());
                         System.out.print("Nom: ");
                         directeur.setNom(Clavier.lireString());
-                        this.tabPersonnel[i] = directeur;
-                        directeur = null;
+                        System.out.println("Fonction: " + mesFonctions.get(choix));
+                        directeur.setFonction(mesFonctions.get(choix));                      
+                        this.tabPersonnel[i] = directeur;                       
                         System.out.println("\n");
                         break;
                     case 2:
@@ -69,8 +74,9 @@ public class IntroDonneesSaveBin implements Prog {
                         comptable.setPrenom(Clavier.lireString());
                         System.out.print("Nom: ");
                         comptable.setNom(Clavier.lireString());
+                        System.out.println("Fonction: " + mesFonctions.get(choix));
+                        comptable.setFonction(mesFonctions.get(choix));  
                         this.tabPersonnel[i] = comptable;
-                        comptable = null;
                         System.out.println("\n");
                         break;
                     case 3:
@@ -82,8 +88,9 @@ public class IntroDonneesSaveBin implements Prog {
                         secretaire.setPrenom(Clavier.lireString());
                         System.out.print("Nom: ");
                         secretaire.setNom(Clavier.lireString());
+                        System.out.println("Fonction: " + mesFonctions.get(choix));
+                        secretaire.setFonction(mesFonctions.get(choix));  
                         this.tabPersonnel[i] = secretaire;
-                        secretaire = null;
                         System.out.println("\n");
                         break;
                     case 4:
@@ -95,8 +102,9 @@ public class IntroDonneesSaveBin implements Prog {
                         ouvrier.setPrenom(Clavier.lireString());
                         System.out.print("Nom: ");
                         ouvrier.setNom(Clavier.lireString());
+                        System.out.println("Fonction: " + mesFonctions.get(choix));
+                        ouvrier.setFonction(mesFonctions.get(choix));  
                         this.tabPersonnel[i] = ouvrier;
-                        ouvrier = null;
                         System.out.println("\n");
                         break;
                     case 5:
