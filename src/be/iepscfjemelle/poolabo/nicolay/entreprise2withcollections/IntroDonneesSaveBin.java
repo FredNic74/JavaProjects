@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  * @author Frederic Nicolay 2ème Bachelier Informatique
  */
 public class IntroDonneesSaveBin implements Prog {
-    
+
     /**
      * Tableau d'objets Personnes
      */
@@ -25,102 +25,98 @@ public class IntroDonneesSaveBin implements Prog {
      */
     @Override
     public void execute(MenuDepart programme) {
-        //Création d'une haspMap
+        //Création d'une haspMap qui définira la fonction d'un objet
         HashMap<Integer, String> mesFonctions = new HashMap<>();
         // Insertion des valeurs dans la liste
         mesFonctions.put(1, "Directeur");
         mesFonctions.put(2, "Comptable");
         mesFonctions.put(3, "Secretaire");
         mesFonctions.put(4, "Ouvrier");
-        
-       
 
         ObjectOutputStream sortie = null;
-        try {//Gestion des erreurs ajouté automatiquement par Netbeans  
-            //dimensionnement de mon tableau de personnel avec ma méthode taille tableau
-            this.tabPersonnel = new Personnes[tailleTableau()];
-            for (int i = 0; i < tabPersonnel.length; i++) {
-
-                int choix = menuFonction();//Appel de ma méthode MenuFonction
-                //String fonction = mesFonctions.get(choix);
-                
-                System.out.println("\n");
-                //Switch pour remplir les attributs d'une classe en fonction du choix fait avant
-                //A FAIRE: CREER DES VARIABLES NUMNATIONAL,PRENOM,NOM ET LES UTILISER COMME PARAMETRE DANS MON CONSTRUCTEUR PERSONNE OU DIRECTEUR VOIR SAMPLE ROMU ENTREPRISE2
-                switch (choix) {
-                    case 0:
-                        System.exit(0);
-                        break;
-                    case 1:
-                        Personnes directeur = new Directeur();
-                        System.out.println("Entrer les informations demandée sur le directeur:  ");
-                        System.out.print("Numéro National: ");
-                        directeur.setNumeroNational(Clavier.lireString());
-                        System.out.print("Prénom: ");
-                        directeur.setPrenom(Clavier.lireString());
-                        System.out.print("Nom: ");
-                        directeur.setNom(Clavier.lireString());
-                        System.out.println("Fonction: " + mesFonctions.get(choix));
-                        directeur.setFonction(mesFonctions.get(choix));                      
-                        this.tabPersonnel[i] = directeur;                       
-                        System.out.println("\n");
-                        break;
-                    case 2:
-                        Personnes comptable = new Comptable();
-                        System.out.println("Entrer les informations demandée sur le comptable:  ");
-                        System.out.print("Numéro National: ");
-                        comptable.setNumeroNational(Clavier.lireString());
-                        System.out.print("Prénom: ");
-                        comptable.setPrenom(Clavier.lireString());
-                        System.out.print("Nom: ");
-                        comptable.setNom(Clavier.lireString());
-                        System.out.println("Fonction: " + mesFonctions.get(choix));
-                        comptable.setFonction(mesFonctions.get(choix));  
-                        this.tabPersonnel[i] = comptable;
-                        System.out.println("\n");
-                        break;
-                    case 3:
-                        Personnes secretaire = new Secretaire();
-                        System.out.println("Entrer les informations demandée sur la/le secretaire:  ");
-                        System.out.print("Numéro National: ");
-                        secretaire.setNumeroNational(Clavier.lireString());
-                        System.out.print("Prénom: ");
-                        secretaire.setPrenom(Clavier.lireString());
-                        System.out.print("Nom: ");
-                        secretaire.setNom(Clavier.lireString());
-                        System.out.println("Fonction: " + mesFonctions.get(choix));
-                        secretaire.setFonction(mesFonctions.get(choix));  
-                        this.tabPersonnel[i] = secretaire;
-                        System.out.println("\n");
-                        break;
-                    case 4:
-                        Personnes ouvrier = new Ouvrier();
-                        System.out.println("Entrer les informations demandée sur l'ouvrier:  ");
-                        System.out.print("Numéro National: ");
-                        ouvrier.setNumeroNational(Clavier.lireString());
-                        System.out.print("Prénom: ");
-                        ouvrier.setPrenom(Clavier.lireString());
-                        System.out.print("Nom: ");
-                        ouvrier.setNom(Clavier.lireString());
-                        System.out.println("Fonction: " + mesFonctions.get(choix));
-                        ouvrier.setFonction(mesFonctions.get(choix));  
-                        this.tabPersonnel[i] = ouvrier;
-                        System.out.println("\n");
-                        break;
-                    case 5:
-                        programme.showMenuDépart();
-                    default:
-                        this.menuFonction();
-                }
+        //dimensionnement de mon tableau de personnel avec ma méthode taille tableau
+        this.tabPersonnel = new Personnes[tailleTableau()];
+        for (int i = 0; i < tabPersonnel.length; i++) {
+            
+            int choix = menuFonction();//Appel de ma méthode MenuFonction
+            
+            System.out.println("\n");
+            //Switch pour remplir les attributs d'une classe en fonction du choix fait avant
+            //A FAIRE: CREER DES VARIABLES NUMNATIONAL,PRENOM,NOM ET LES UTILISER COMME PARAMETRE DANS MON CONSTRUCTEUR PERSONNE OU DIRECTEUR VOIR SAMPLE ROMU ENTREPRISE2
+            switch (choix) {
+                case 0:
+                    System.exit(0);
+                    break;
+                case 1:
+                    Personnes directeur = new Directeur();
+                    System.out.println("Entrer les informations demandée sur le directeur:  ");
+                    System.out.print("Numéro National: ");
+                    directeur.setNumeroNational(Clavier.lireString());
+                    System.out.print("Prénom: ");
+                    directeur.setPrenom(Clavier.lireString());
+                    System.out.print("Nom: ");
+                    directeur.setNom(Clavier.lireString());
+                    System.out.println("Fonction: " + mesFonctions.get(choix));
+                    directeur.setFonction(mesFonctions.get(choix));   //Utilisation de la clé du HashMap pour définir la fonction
+                    this.tabPersonnel[i] = directeur;
+                    System.out.println("\n");
+                    break;
+                case 2:
+                    Personnes comptable = new Comptable();
+                    System.out.println("Entrer les informations demandée sur le comptable:  ");
+                    System.out.print("Numéro National: ");
+                    comptable.setNumeroNational(Clavier.lireString());
+                    System.out.print("Prénom: ");
+                    comptable.setPrenom(Clavier.lireString());
+                    System.out.print("Nom: ");
+                    comptable.setNom(Clavier.lireString());
+                    System.out.println("Fonction: " + mesFonctions.get(choix));
+                    comptable.setFonction(mesFonctions.get(choix));//Utilisation de la clé du HashMap pour définir la fonction
+                    this.tabPersonnel[i] = comptable;
+                    System.out.println("\n");
+                    break;
+                case 3:
+                    Personnes secretaire = new Secretaire();
+                    System.out.println("Entrer les informations demandée sur la/le secretaire:  ");
+                    System.out.print("Numéro National: ");
+                    secretaire.setNumeroNational(Clavier.lireString());
+                    System.out.print("Prénom: ");
+                    secretaire.setPrenom(Clavier.lireString());
+                    System.out.print("Nom: ");
+                    secretaire.setNom(Clavier.lireString());
+                    System.out.println("Fonction: " + mesFonctions.get(choix));
+                    secretaire.setFonction(mesFonctions.get(choix));  //Utilisation de la clé du HashMap pour définir la fonction
+                    this.tabPersonnel[i] = secretaire;
+                    System.out.println("\n");
+                    break;
+                case 4:
+                    Personnes ouvrier = new Ouvrier();
+                    System.out.println("Entrer les informations demandée sur l'ouvrier:  ");
+                    System.out.print("Numéro National: ");
+                    ouvrier.setNumeroNational(Clavier.lireString());
+                    System.out.print("Prénom: ");
+                    ouvrier.setPrenom(Clavier.lireString());
+                    System.out.print("Nom: ");
+                    ouvrier.setNom(Clavier.lireString());
+                    System.out.println("Fonction: " + mesFonctions.get(choix));
+                    ouvrier.setFonction(mesFonctions.get(choix));//Utilisation de la clé du HashMap pour définir la fonction
+                    this.tabPersonnel[i] = ouvrier;
+                    System.out.println("\n");
+                    break;
+                case 5:
+                    programme.showMenuDépart();
+                default:
+                    this.menuFonction();
             }
+        } 
+        try {
             this.saveDataTab(this.tabPersonnel);//appel de la méthode de sauvegarde en fichier binaire
-            this.endProg(programme);//appel de la méthode fin de programme
-
-            //Gestion des erreurs ajouté automatiquement par Netbeans ?????  
         } catch (IOException ex) {
             Logger.getLogger(IntroDonneesSaveBin.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
         }
+        
+        this.endProg(programme);//appel de la méthode fin de programme
+        
     }
 
     /**
@@ -136,7 +132,8 @@ public class IntroDonneesSaveBin implements Prog {
     }
 
     /**
-     * Méthode pour sauvegarder en binaire les objets de mon tableau(flux de sortie d'objet)
+     * Méthode pour sauvegarder en binaire les objets de mon tableau(flux de
+     * sortie d'objet)
      *
      * @param tableau
      * @throws FileNotFoundException

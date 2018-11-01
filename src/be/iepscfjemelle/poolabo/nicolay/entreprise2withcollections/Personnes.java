@@ -94,5 +94,5 @@ public abstract class Personnes implements IntPersonne, Serializable{
 
     @Override
     public abstract void manger();
-    
+
 }

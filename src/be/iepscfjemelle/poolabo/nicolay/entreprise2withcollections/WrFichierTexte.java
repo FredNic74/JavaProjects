@@ -76,8 +76,8 @@ public class WrFichierTexte implements Prog {
                 //Boucle qui récupère mes objets dans mon ArrayList via un itérateur et les mets dans mon fichier.txt.
                 Iterator<Personnes> iter = al.iterator();
                 while (iter.hasNext()){
-                    Personnes pers = iter.next();
-                    sortie.println(pers);
+                    Personnes empl = iter.next();
+                    sortie.println(empl);
                 }   
                 
                 System.out.println("Vous trouverez le fichier.txt dans les répertoires du programme.\n");
