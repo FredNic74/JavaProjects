@@ -67,6 +67,7 @@ public class IntroDonneesSaveBin implements Prog {
                     if (hset.add(directeur)) {
                     } else {
                         System.out.println("Cet employé occupe déjà une fonction dans l'entreprise.\n");
+                        System.out.println("Veuillez rentrer à nouveau les informations sur l'employé.\n");
                         i--;
                     }
                     System.out.println("\n");
@@ -86,6 +87,7 @@ public class IntroDonneesSaveBin implements Prog {
                     if (hset.add(comptable)) {
                     } else {
                         System.out.println("Cet employé occupe déjà une fonction dans l'entreprise.\n");
+                        System.out.println("Veuillez rentrer à nouveau les informations sur l'employé.\n");
                         i--;
                     }
                     System.out.println("\n");
@@ -105,6 +107,7 @@ public class IntroDonneesSaveBin implements Prog {
                     if (hset.add(secretaire)) {
                     } else {
                         System.out.println("Cet employé occupe déjà une fonction dans l'entreprise.\n");
+                        System.out.println("Veuillez rentrer à nouveau les informations sur l'employé.\n");
                         i--;
                     }
                     System.out.println("\n");
@@ -124,6 +127,7 @@ public class IntroDonneesSaveBin implements Prog {
                     if (hset.add(ouvrier)) {
                     } else {
                         System.out.println("Cet employé occupe déjà une fonction dans l'entreprise.\n");
+                        System.out.println("Veuillez rentrer à nouveau les informations sur l'employé.\n");
                         i--;
                     }
                     System.out.println("\n");

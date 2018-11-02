@@ -1,3 +1,7 @@
-Numéro National: 65465, Prénom: Fred, Nom: Nico, Fonction: Directeur, Portefeuille: Ca frôle l'indécence!, Job description: Dirige la société.
-Numéro National: 6546, Prénom: Greg, Nom: Hagel, Fonction: Comptable, Job description: s'occupe de la facturation.
-Numéro National: 6546, Prénom: Gege, Nom: Lapelle, Fonction: Ouvrier, Job description: travail sur chantier.
+Numéro National: 1234, Prénom: Jesuis, Nom: Lebosse, Fonction: Directeur, Portefeuille: Ca frôle l'indécence!, Job description: Dirige la société.
+Numéro National: 6546, Prénom: Jecompte, Nom: Bien, Fonction: Comptable, Job description: s'occupe de la facturation.
+Numéro National: 5665, Prénom: Mimi, Nom: Lafrappe, Fonction: Secretaire, Job description: assiste le directeur.
+Numéro National: 65465, Prénom: Gege, Nom: Lapelle, Fonction: Ouvrier, Job description: travail sur chantier.
+Numéro National: 6546, Prénom: Momo, Nom: Lagrue, Fonction: Ouvrier, Job description: travail sur chantier.
+Numéro National: 65465, Prénom: Jecreuse, Nom: Letrou, Fonction: Ouvrier, Job description: travail sur chantier.
+Numéro National: 65465, Prénom: Dernier, Nom: Ouvrier, Fonction: Ouvrier, Job description: travail sur chantier.
