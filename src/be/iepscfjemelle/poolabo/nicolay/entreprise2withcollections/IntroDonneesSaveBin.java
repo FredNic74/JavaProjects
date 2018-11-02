@@ -5,6 +5,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,34 +17,37 @@ import java.util.logging.Logger;
 public class IntroDonneesSaveBin implements Prog {
 
     /**
-     * Tableau d'objets Personnes
+     * Tableau de int qui servira pour boucler autant de fois qu'il y a
+     * d'employé dans l'entreprise
      */
-    public Personnes[] tabPersonnel = null;
+    public int[] tableau = null;
 
     /**
-     * Methode qui remplis mon tableau et les attributs de chaques employés
+     * Methode qui remplis mon hashset et les attributs de chaques employés
      *
      */
     @Override
     public void execute(MenuDepart programme) {
         //Création d'une haspMap qui définira la fonction d'un objet
         HashMap<Integer, String> mesFonctions = new HashMap<>();
-        // Insertion des valeurs dans la liste
+        // Insertion des valeurs dans la hashmap
         mesFonctions.put(1, "Directeur");
         mesFonctions.put(2, "Comptable");
         mesFonctions.put(3, "Secretaire");
         mesFonctions.put(4, "Ouvrier");
 
+        // Création d'un hashSet d'objets Personnes
+        HashSet<Personnes> hset = new HashSet<>();
+
         ObjectOutputStream sortie = null;
-        //dimensionnement de mon tableau de personnel avec ma méthode taille tableau
-        this.tabPersonnel = new Personnes[tailleTableau()];
-        for (int i = 0; i < tabPersonnel.length; i++) {
-            
-            int choix = menuFonction();//Appel de ma méthode MenuFonction
-            
+        //dimensionnement de mon tableau  avec ma méthode taille tableau
+        this.tableau = new int[tailleTableau()];
+        for (int i = 0; i < tableau.length; i++) {
+
+            int choix = menuFonction();//Appel de ma méthode MenuFonction     
+
             System.out.println("\n");
-            //Switch pour remplir les attributs d'une classe en fonction du choix fait avant
-            //A FAIRE: CREER DES VARIABLES NUMNATIONAL,PRENOM,NOM ET LES UTILISER COMME PARAMETRE DANS MON CONSTRUCTEUR PERSONNE OU DIRECTEUR VOIR SAMPLE ROMU ENTREPRISE2
+            //Switch pour remplir les attributs d'une classe en fonction du choix fait avant           
             switch (choix) {
                 case 0:
                     System.exit(0);
@@ -57,8 +62,13 @@ public class IntroDonneesSaveBin implements Prog {
                     System.out.print("Nom: ");
                     directeur.setNom(Clavier.lireString());
                     System.out.println("Fonction: " + mesFonctions.get(choix));
-                    directeur.setFonction(mesFonctions.get(choix));   //Utilisation de la clé du HashMap pour définir la fonction
-                    this.tabPersonnel[i] = directeur;
+                    directeur.setFonction(mesFonctions.get(choix));//Utilisation de la clé du HashMap pour définir la fonction
+                    //condition ajout de l'objet, si le nom existe déjà, msg erreur et demande à nouveau les attributs du nouvel employé
+                    if (hset.add(directeur)) {
+                    } else {
+                        System.out.println("Cet employé occupe déjà une fonction dans l'entreprise.\n");
+                        i--;
+                    }
                     System.out.println("\n");
                     break;
                 case 2:
@@ -72,7 +82,12 @@ public class IntroDonneesSaveBin implements Prog {
                     comptable.setNom(Clavier.lireString());
                     System.out.println("Fonction: " + mesFonctions.get(choix));
                     comptable.setFonction(mesFonctions.get(choix));//Utilisation de la clé du HashMap pour définir la fonction
-                    this.tabPersonnel[i] = comptable;
+                    //condition ajout de l'objet, si le nom existe déjà, msg erreur et demande à nouveau les attributs du nouvel employé
+                    if (hset.add(comptable)) {
+                    } else {
+                        System.out.println("Cet employé occupe déjà une fonction dans l'entreprise.\n");
+                        i--;
+                    }
                     System.out.println("\n");
                     break;
                 case 3:
@@ -85,8 +100,13 @@ public class IntroDonneesSaveBin implements Prog {
                     System.out.print("Nom: ");
                     secretaire.setNom(Clavier.lireString());
                     System.out.println("Fonction: " + mesFonctions.get(choix));
-                    secretaire.setFonction(mesFonctions.get(choix));  //Utilisation de la clé du HashMap pour définir la fonction
-                    this.tabPersonnel[i] = secretaire;
+                    secretaire.setFonction(mesFonctions.get(choix));//Utilisation de la clé du HashMap pour définir la fonction
+                    //condition ajout de l'objet, si le nom existe déjà, msg erreur et demande à nouveau les attributs du nouvel employé
+                    if (hset.add(secretaire)) {
+                    } else {
+                        System.out.println("Cet employé occupe déjà une fonction dans l'entreprise.\n");
+                        i--;
+                    }
                     System.out.println("\n");
                     break;
                 case 4:
@@ -100,7 +120,12 @@ public class IntroDonneesSaveBin implements Prog {
                     ouvrier.setNom(Clavier.lireString());
                     System.out.println("Fonction: " + mesFonctions.get(choix));
                     ouvrier.setFonction(mesFonctions.get(choix));//Utilisation de la clé du HashMap pour définir la fonction
-                    this.tabPersonnel[i] = ouvrier;
+                    //condition ajout de l'objet, si le nom existe déjà, msg erreur et demande à nouveau les attributs du nouvel employé
+                    if (hset.add(ouvrier)) {
+                    } else {
+                        System.out.println("Cet employé occupe déjà une fonction dans l'entreprise.\n");
+                        i--;
+                    }
                     System.out.println("\n");
                     break;
                 case 5:
@@ -108,15 +133,37 @@ public class IntroDonneesSaveBin implements Prog {
                 default:
                     this.menuFonction();
             }
-        } 
+        }
+
         try {
-            this.saveDataTab(this.tabPersonnel);//appel de la méthode de sauvegarde en fichier binaire
+            saveDataHset(hset);//appel de ma méthode saveDataHset
         } catch (IOException ex) {
             Logger.getLogger(IntroDonneesSaveBin.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         this.endProg(programme);//appel de la méthode fin de programme
-        
+    }
+    
+    //****************************************Méthodes*****************************************************
+
+    /**
+     * Méthode qui parcour mon hashset via un itérateur et encode mes objets
+     * Personnes dans un fichier binaire
+     *
+     * @param hs
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
+    public static void saveDataHset(HashSet<Personnes> hs) throws FileNotFoundException, IOException {
+        // Création d'un itérateur
+        Iterator<Personnes> iter = hs.iterator();
+        ObjectOutputStream sortie = new ObjectOutputStream(new FileOutputStream("fichier.dat"));
+        // Boucle tant qu'il y a un objet dans le hashset
+        while (iter.hasNext()) {
+            Personnes empl = iter.next();
+            sortie.writeObject(empl);
+        }
+        System.out.println();
     }
 
     /**
@@ -130,23 +177,7 @@ public class IntroDonneesSaveBin implements Prog {
         String str = Clavier.lireString();
         programme.showMenuDépart();
     }
-
-    /**
-     * Méthode pour sauvegarder en binaire les objets de mon tableau(flux de
-     * sortie d'objet)
-     *
-     * @param tableau
-     * @throws FileNotFoundException
-     * @throws IOException
-     */
-    public void saveDataTab(Personnes[] tableau) throws FileNotFoundException, IOException {
-        try (ObjectOutputStream sortie = new ObjectOutputStream(new FileOutputStream("fichier.dat"))) {
-            for (Personnes tabPersonnel1 : tabPersonnel) {
-                sortie.writeObject(tabPersonnel1);
-            }
-        }
-    }
-
+   
     /**
      * Méthode pour choisir la fonction, quitter ou retour au menu principale
      *

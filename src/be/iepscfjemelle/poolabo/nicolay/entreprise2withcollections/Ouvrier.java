@@ -35,6 +35,8 @@ public class Ouvrier extends Personnes implements Serializable{
 
     //**************************** Getters and setters ***********************************************
     
+    
+    
     //******************************* Méthodes ******************************************
     /**
      * Méthodes à overrider

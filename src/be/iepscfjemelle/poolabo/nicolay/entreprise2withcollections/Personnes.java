@@ -6,7 +6,8 @@ import java.io.Serializable;
  *
  * @author Frederic Nicolay 2ème Bachelier Informatique
  */
-public abstract class Personnes implements IntPersonne, Serializable{
+public abstract class Personnes implements IntPersonne, Serializable {
+
     // ***********************   Attributs  ***************************************
     /**
      * Numero national de la personne
@@ -24,8 +25,7 @@ public abstract class Personnes implements IntPersonne, Serializable{
      * Fonction de la personne
      */
     public String fonction;
-    
-    
+
     // ***********************  Constructeurs ***************************************
     /**
      * Constructeur avec paramètres
@@ -41,13 +41,13 @@ public abstract class Personnes implements IntPersonne, Serializable{
         this.nom = nom;
         this.fonction = fonction;
     }
-    
+
     /**
      * Constructeur par défaut
      */
     public Personnes() {
     }
-    
+
     // *********************** Getters and setters *********************************
     /**
      * Getters and Setters commun à toutes les classes
@@ -84,10 +84,10 @@ public abstract class Personnes implements IntPersonne, Serializable{
     public void setFonction(String fonction) {
         this.fonction = fonction;
     }
-    
+
 //******************************* Méthodes ******************************************
     /**
-     * Méthodes
+     * Méthodes Overridé
      */
     @Override
     public abstract void joue();
@@ -95,4 +95,24 @@ public abstract class Personnes implements IntPersonne, Serializable{
     @Override
     public abstract void manger();
 
+    /**
+     * Méthode hashCode pour mon hashset
+     * @return 
+     */
+    @Override
+    public int hashCode() {
+        return 10;
+    }
+    /**
+     * Méthode equals pour mon hashset
+     * @param obj
+     * @return 
+     */
+    @Override
+    public boolean equals(Object obj) {
+       if (obj instanceof Personnes){
+           return((Personnes)obj).getNom().equals(this.getNom());   
+       }
+       return false;
+    }
 }

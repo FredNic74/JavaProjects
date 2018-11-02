@@ -64,6 +64,8 @@ public class AffichageConsole implements Prog {
         }
     }
 
+    //*****************************************Méthodes*************************************************
+    
     /**
      * Fin du programme, retour au menu principale
      *

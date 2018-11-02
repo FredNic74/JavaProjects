@@ -34,6 +34,8 @@ public class Secretaire extends Personnes implements Serializable{
     }
 
     //*************************** Getters and setters ************************************************
+    
+    
 
     //******************************* Méthodes ******************************************
     /**

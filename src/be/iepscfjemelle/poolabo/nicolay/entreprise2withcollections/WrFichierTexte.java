@@ -34,7 +34,7 @@ public class WrFichierTexte implements Prog {
     private String nomfich;
 
     /**
-     * Arraylist pour y stocker les objet lu dans le fichier binair, s'adaptera
+     * Arraylist pour y stocker les objet lu dans le fichier binaire, s'adaptera
      * au nombre d'objet
      *
      * @param programme
@@ -93,6 +93,8 @@ public class WrFichierTexte implements Prog {
         }
     }
 
+    //*********************************************Méthodes**************************************************
+    
     /**
      * Fin du programme, retour au menu principale
      *

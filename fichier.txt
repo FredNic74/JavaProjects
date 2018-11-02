@@ -1,4 +1,3 @@
-Numéro National: 1234, Prénom: Fred, Nom: Nico, Fonction: Directeur, Portefeuille: Ca frôle l'indécence!, Job description: Dirige la société.
-Numéro National: 4567, Prénom: Greg, Nom: Hagel, Fonction: Comptable, Job description: s'occupe de la facturation.
-Numéro National: 7894, Prénom: Mimi, Nom: Lafrappe, Fonction: Secretaire, Job description: assiste le directeur.
-Numéro National: 4561, Prénom: Gege, Nom: Lapelle, Fonction: Ouvrier, Job description: travail sur chantier.
+Numéro National: 65465, Prénom: Fred, Nom: Nico, Fonction: Directeur, Portefeuille: Ca frôle l'indécence!, Job description: Dirige la société.
+Numéro National: 6546, Prénom: Greg, Nom: Hagel, Fonction: Comptable, Job description: s'occupe de la facturation.
+Numéro National: 6546, Prénom: Gege, Nom: Lapelle, Fonction: Ouvrier, Job description: travail sur chantier.
