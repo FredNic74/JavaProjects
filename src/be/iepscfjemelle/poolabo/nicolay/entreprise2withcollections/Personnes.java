@@ -1,6 +1,7 @@
 package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollections;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *
@@ -101,8 +102,11 @@ public abstract class Personnes implements IntPersonne, Serializable {
      */
     @Override
     public int hashCode() {
-        return 10;
+        int hash = 3;
+        hash = 61 * hash + Objects.hashCode(this.nom);
+        return hash;
     }
+    
     /**
      * Méthode equals pour mon hashset
      * @param obj
@@ -110,9 +114,16 @@ public abstract class Personnes implements IntPersonne, Serializable {
      */
     @Override
     public boolean equals(Object obj) {
-       if (obj instanceof Personnes){
-           return((Personnes)obj).getNom().equals(this.getNom());   
-       }
-       return false;
-    }
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }      
+        final Personnes other = (Personnes) obj;
+        if (!Objects.equals(this.nom, other.nom)) {
+            return false;
+        }
+        return true;
+    }    
 }
