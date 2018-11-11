@@ -3,7 +3,8 @@ package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollections;
 import java.io.Serializable;
 
 /**
- *
+ * Classe d'objet secrétaire, qui hérite de l'objet personnes (interface et abstrait)
+ * 
  * @author Frederic Nicolay 2ème Bachelier Informatique
  */
 public class Secretaire extends Personnes implements Serializable{

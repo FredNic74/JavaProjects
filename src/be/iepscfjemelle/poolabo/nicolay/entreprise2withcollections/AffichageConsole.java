@@ -9,7 +9,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Classe héritant de l'interface Prog, qui va lire des objets personne dans un fichier binaire 
+ * les désérialisent et les affiche dans la console. 
+ * Propose un retour au menu principal à la fin.
+ * 
  * @author Frederic Nicolay 2ème Bachelier Informatique
  */
 public class AffichageConsole implements Prog {

@@ -1,7 +1,14 @@
 package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollections;
 
 /**
- *
+ * Classe de mon menu de départ, qui permet de faire 4 choix:
+ * 1. créer et introduire les données des employés, les sérialiser et les copier dans un fichier binaire
+ * 2. lire un fichier binaire, désérialiser et afficher dans la console
+ * 3. lire un fichier binaire et mettre tout nos employés dans un fichier texte
+ * 4. Quitter et sortir du programme
+ * 
+ * Chacun des choix, va lancer une classe différente.
+ * 
  * @author Frederic Nicolay 2ème Bachelier Informatique
  */
 public class MenuDepart {

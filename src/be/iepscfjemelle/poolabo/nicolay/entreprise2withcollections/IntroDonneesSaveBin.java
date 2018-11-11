@@ -11,7 +11,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Classe héritant de l'interface Prog, qui à partir d'un menu secondaire, crée des objets Personnes et leurs attributs, (fonctions d'après un hashmap).
+ * Places ces objets Personnes dans un hashset, pour éviter les doublons.
+ * Ensuite, parcours le hashset, sérialise chaque ojets et l'enregistre dans un fichier binaire.
+ * Propose un retour au menu principal à la fin.
+ * 
  * @author Frederic Nicolay 2ème Bachelier Informatique
  */
 public class IntroDonneesSaveBin implements Prog {

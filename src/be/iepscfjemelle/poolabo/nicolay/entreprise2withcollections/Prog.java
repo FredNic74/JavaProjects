@@ -1,7 +1,9 @@
 package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollections;
 
 /**
- * Méthodes principales utilisées dans mon programme
+ * Interface de mon programme principal, chaques classes qui en hérite, devra comporter
+ * les méthodes execute et endProg.
+ * 
  * @author Frederic Nicolay 2ème Bachelier Informatique
  */
 public interface Prog {

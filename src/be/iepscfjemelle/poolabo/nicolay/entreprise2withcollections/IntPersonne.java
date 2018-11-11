@@ -1,7 +1,11 @@
 package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollections;
 
 /**
- *
+ * Interface des objets Personnes, ces objets devront comporter les méthodes
+ * -manger
+ * -joue
+ * -toString
+ * 
  * @author Frederic Nicolay 2ème Bachelier Informatique
  */
 

@@ -1,7 +1,9 @@
 package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollections;
 
 /**
- *
+ * Classe starter, qui contient la méthode main, qui crée l'objet MenuDepart
+ * et lance mon programme.
+ * 
  * @author Frederic Nicolay 2ème Bachelier Informatique
  */
 public class Starter {

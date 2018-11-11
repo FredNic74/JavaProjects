@@ -1,6 +1,8 @@
 package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollections;
 
-// classe fournissant des fonctions de lecture au clavier -
+/**
+ * classe fournissant des fonctions de lecture au clavier
+ */
 import java.io.* ;
 public class Clavier
 { public static String lireString ()   // lecture d'une chaine

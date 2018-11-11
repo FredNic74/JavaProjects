@@ -13,7 +13,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Classe héritant de l'interface Prog, récupère et désérialise les objets Personnes dans un fichier binaire.
+ * Les places dans une Arraylist, parcour cet Arraylist et resérialise chaque objet Personne,
+ * pour les placer cette fois-ci dans un fichier texte.
+ * Propose un retour au menu principal à la fin.
+ * 
  * @author Frederic Nicolay 2ème Bachelier Informatique
  */
 public class WrFichierTexte implements Prog {

@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- *
+ * Classe abstraite de l'objet Personnes, contenant les attributs d'une personnes.
+ * 
  * @author Frederic Nicolay 2ème Bachelier Informatique
  */
 public abstract class Personnes implements IntPersonne, Serializable {

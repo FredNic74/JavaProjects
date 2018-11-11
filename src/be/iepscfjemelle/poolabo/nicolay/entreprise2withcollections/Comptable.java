@@ -3,7 +3,8 @@ package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollections;
 import java.io.Serializable;
 
 /**
- *
+ * Classe d'objet comptable, qui hérite de l'objet personnes (interface et abstrait)
+ * 
  * @author Frederic Nicolay 2ème Bachelier Informatique
  */
 public class Comptable extends Personnes implements Serializable{
