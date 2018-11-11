@@ -21,12 +21,6 @@ import java.util.logging.Logger;
 public class IntroDonneesSaveBin implements Prog {
 
     /**
-     * Tableau de int qui servira pour boucler autant de fois qu'il y a
-     * d'employé dans l'entreprise
-     */
-    public int[] tableau = null;
-
-    /**
      * Methode qui remplis mon hashset et les attributs de chaques employés
      *
      */
@@ -44,9 +38,10 @@ public class IntroDonneesSaveBin implements Prog {
         HashSet<Personnes> hset = new HashSet<>();
 
         ObjectOutputStream sortie = null;
-        //dimensionnement de mon tableau  avec ma méthode taille tableau
-        this.tableau = new int[tailleTableau()];
-        for (int i = 0; i < tableau.length; i++) {
+        
+        int nbr = nombreEmploye();//nombre d'employé dans l'entreprise pour définir le nombre de boucles
+        
+        for (int i = 0; i < nbr; i++) {
 
             int choix = menuFonction();//Appel de ma méthode MenuFonction     
 
@@ -206,11 +201,11 @@ public class IntroDonneesSaveBin implements Prog {
     }
 
     /**
-     * Méthode pour choisir le nombre d'employé et donc la taille de mon tableau
+     * Méthode pour choisir le nombre d'employé et renvoyé un int
      *
      * @return
      */
-    private int tailleTableau() {
+    private int nombreEmploye() {
         int taille;
         System.out.print("Entrer le nombre d'employé dans l'entreprise: ");
         taille = Clavier.lireInt();
