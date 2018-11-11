@@ -17,23 +17,20 @@ public class Directeur extends Personnes implements Serializable{
     
     // ***********************  Constructeurs ***************************************
     /**
-     * Constructeur avec paramètres
-     *
-     * @param numeroNational
-     * @param prenom
-     * @param nom
-     * @param fonction
-     * @param portefeuille
-     */  
-    public Directeur(String numeroNational, String prenom, String nom, String fonction, String portefeuille) {
-        super(numeroNational, prenom, nom, fonction);//Super pour reprendre les attributs de la classe parent (Personnes) dans le constructeur
-        this.portefeuille = portefeuille;//ajout des deux attributs spécifique à cette classe dans le constructeur.
-    }
-
-    /**
      * Constructeur par défaut
      */
     public Directeur() {
+    }
+ 
+    /**
+     * Constructeur utiliser dans la classe IntroDonneesSaveBin pour remplir les attibuts de l'objet directeur.
+     * @param numeroNational
+     * @param prenom
+     * @param nom
+     * @param fonction 
+     */
+    Directeur(String numeroNational, String prenom, String nom, String fonction) {
+        super(numeroNational, prenom, nom, fonction);
     }
     
     //******************************* Getters and setters ********************************************

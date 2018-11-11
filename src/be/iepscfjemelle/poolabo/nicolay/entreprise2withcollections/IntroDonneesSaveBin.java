@@ -11,11 +11,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Classe héritant de l'interface Prog, qui à partir d'un menu secondaire, crée des objets Personnes et leurs attributs, (fonctions d'après un hashmap).
+ * Classe héritant de l'interface Prog, qui à partir d'un menu secondaire, crée
+ * des objets Personnes et leurs attributs, (fonctions d'après un hashmap).
  * Places ces objets Personnes dans un hashset, pour éviter les doublons.
- * Ensuite, parcours le hashset, sérialise chaque ojets et l'enregistre dans un fichier binaire.
- * Propose un retour au menu principal à la fin.
- * 
+ * Ensuite, parcours le hashset, sérialise chaque ojets et l'enregistre dans un
+ * fichier binaire. Propose un retour au menu principal à la fin.
+ *
  * @author Frederic Nicolay 2ème Bachelier Informatique
  */
 public class IntroDonneesSaveBin implements Prog {
@@ -38,13 +39,21 @@ public class IntroDonneesSaveBin implements Prog {
         HashSet<Personnes> hset = new HashSet<>();
 
         ObjectOutputStream sortie = null;
-        
+
         int nbr = nombreEmploye();//nombre d'employé dans l'entreprise pour définir le nombre de boucles
-        
+
         for (int i = 0; i < nbr; i++) {
-
-            int choix = menuFonction();//Appel de ma méthode MenuFonction     
-
+            int choix = menuFonction();//Appel de ma méthode MenuFonction    
+            //Lecture des données de chaque employé dans la console pour remplir les attributs de chaque objet Personnes
+            System.out.println("Entrer les informations demandée sur l'ouvrier:  ");
+            System.out.print("Numéro National: ");
+            String numeroNational = Clavier.lireString();
+            System.out.print("Prénom: ");
+            String prenom = Clavier.lireString();
+            System.out.print("Nom: ");
+            String nom = Clavier.lireString();
+            System.out.println("Fonction: " + mesFonctions.get(choix));
+            String fonction = mesFonctions.get(choix);
             System.out.println("\n");
             //Switch pour remplir les attributs d'une classe en fonction du choix fait avant           
             switch (choix) {
@@ -52,16 +61,7 @@ public class IntroDonneesSaveBin implements Prog {
                     System.exit(0);
                     break;
                 case 1:
-                    Personnes directeur = new Directeur();
-                    System.out.println("Entrer les informations demandée sur le directeur:  ");
-                    System.out.print("Numéro National: ");
-                    directeur.setNumeroNational(Clavier.lireString());
-                    System.out.print("Prénom: ");
-                    directeur.setPrenom(Clavier.lireString());
-                    System.out.print("Nom: ");
-                    directeur.setNom(Clavier.lireString());
-                    System.out.println("Fonction: " + mesFonctions.get(choix));
-                    directeur.setFonction(mesFonctions.get(choix));//Utilisation de la clé du HashMap pour définir la fonction
+                    Personnes directeur = new Directeur(numeroNational, prenom, nom, fonction);
                     //condition ajout de l'objet, si le nom existe déjà, msg erreur et demande à nouveau les attributs du nouvel employé
                     if (hset.add(directeur)) {
                     } else {
@@ -72,16 +72,7 @@ public class IntroDonneesSaveBin implements Prog {
                     System.out.println("\n");
                     break;
                 case 2:
-                    Personnes comptable = new Comptable();
-                    System.out.println("Entrer les informations demandée sur le comptable:  ");
-                    System.out.print("Numéro National: ");
-                    comptable.setNumeroNational(Clavier.lireString());
-                    System.out.print("Prénom: ");
-                    comptable.setPrenom(Clavier.lireString());
-                    System.out.print("Nom: ");
-                    comptable.setNom(Clavier.lireString());
-                    System.out.println("Fonction: " + mesFonctions.get(choix));
-                    comptable.setFonction(mesFonctions.get(choix));//Utilisation de la clé du HashMap pour définir la fonction
+                    Personnes comptable = new Comptable(numeroNational, prenom, nom, fonction);
                     //condition ajout de l'objet, si le nom existe déjà, msg erreur et demande à nouveau les attributs du nouvel employé
                     if (hset.add(comptable)) {
                     } else {
@@ -92,16 +83,7 @@ public class IntroDonneesSaveBin implements Prog {
                     System.out.println("\n");
                     break;
                 case 3:
-                    Personnes secretaire = new Secretaire();
-                    System.out.println("Entrer les informations demandée sur la/le secretaire:  ");
-                    System.out.print("Numéro National: ");
-                    secretaire.setNumeroNational(Clavier.lireString());
-                    System.out.print("Prénom: ");
-                    secretaire.setPrenom(Clavier.lireString());
-                    System.out.print("Nom: ");
-                    secretaire.setNom(Clavier.lireString());
-                    System.out.println("Fonction: " + mesFonctions.get(choix));
-                    secretaire.setFonction(mesFonctions.get(choix));//Utilisation de la clé du HashMap pour définir la fonction
+                    Personnes secretaire = new Secretaire(numeroNational, prenom, nom, fonction);
                     //condition ajout de l'objet, si le nom existe déjà, msg erreur et demande à nouveau les attributs du nouvel employé
                     if (hset.add(secretaire)) {
                     } else {
@@ -112,16 +94,7 @@ public class IntroDonneesSaveBin implements Prog {
                     System.out.println("\n");
                     break;
                 case 4:
-                    Personnes ouvrier = new Ouvrier();
-                    System.out.println("Entrer les informations demandée sur l'ouvrier:  ");
-                    System.out.print("Numéro National: ");
-                    ouvrier.setNumeroNational(Clavier.lireString());
-                    System.out.print("Prénom: ");
-                    ouvrier.setPrenom(Clavier.lireString());
-                    System.out.print("Nom: ");
-                    ouvrier.setNom(Clavier.lireString());
-                    System.out.println("Fonction: " + mesFonctions.get(choix));
-                    ouvrier.setFonction(mesFonctions.get(choix));//Utilisation de la clé du HashMap pour définir la fonction
+                    Personnes ouvrier = new Ouvrier(numeroNational, prenom, nom, fonction);
                     //condition ajout de l'objet, si le nom existe déjà, msg erreur et demande à nouveau les attributs du nouvel employé
                     if (hset.add(ouvrier)) {
                     } else {
@@ -146,9 +119,8 @@ public class IntroDonneesSaveBin implements Prog {
 
         this.endProg(programme);//appel de la méthode fin de programme
     }
-    
-    //****************************************Méthodes*****************************************************
 
+    //****************************************Méthodes*****************************************************
     /**
      * Méthode qui parcour mon hashset via un itérateur et encode mes objets
      * Personnes dans un fichier binaire
@@ -180,7 +152,7 @@ public class IntroDonneesSaveBin implements Prog {
         String str = Clavier.lireString();
         programme.showMenuDépart();
     }
-   
+
     /**
      * Méthode pour choisir la fonction, quitter ou retour au menu principale
      *
