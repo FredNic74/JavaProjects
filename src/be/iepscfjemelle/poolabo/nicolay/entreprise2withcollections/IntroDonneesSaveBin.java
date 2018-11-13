@@ -62,46 +62,22 @@ public class IntroDonneesSaveBin implements Prog {
                     break;
                 case 1:
                     Personnes directeur = new Directeur(numeroNational, prenom, nom, fonction);
-                    //condition ajout de l'objet, si le nom existe déjà, msg erreur et demande à nouveau les attributs du nouvel employé
-                    if (hset.add(directeur)) {
-                    } else {
-                        System.out.println("Cet employé occupe déjà une fonction dans l'entreprise.\n");
-                        System.out.println("Veuillez rentrer à nouveau les informations sur l'employé.\n");
-                        i--;
-                    }
+                    i = ajoutPersonneToList(directeur, hset)? i : i-1;//appel la méthode ajoutPersonne ToList                     
                     System.out.println("\n");
                     break;
                 case 2:
                     Personnes comptable = new Comptable(numeroNational, prenom, nom, fonction);
-                    //condition ajout de l'objet, si le nom existe déjà, msg erreur et demande à nouveau les attributs du nouvel employé
-                    if (hset.add(comptable)) {
-                    } else {
-                        System.out.println("Cet employé occupe déjà une fonction dans l'entreprise.\n");
-                        System.out.println("Veuillez rentrer à nouveau les informations sur l'employé.\n");
-                        i--;
-                    }
+                    i = ajoutPersonneToList(comptable, hset)? i : i-1;//appel la méthode ajoutPersonne ToList                    
                     System.out.println("\n");
                     break;
                 case 3:
                     Personnes secretaire = new Secretaire(numeroNational, prenom, nom, fonction);
-                    //condition ajout de l'objet, si le nom existe déjà, msg erreur et demande à nouveau les attributs du nouvel employé
-                    if (hset.add(secretaire)) {
-                    } else {
-                        System.out.println("Cet employé occupe déjà une fonction dans l'entreprise.\n");
-                        System.out.println("Veuillez rentrer à nouveau les informations sur l'employé.\n");
-                        i--;
-                    }
+                    i = ajoutPersonneToList(secretaire, hset)? i : i-1;//appel la méthode ajoutPersonne ToList                    
                     System.out.println("\n");
                     break;
                 case 4:
-                    Personnes ouvrier = new Ouvrier(numeroNational, prenom, nom, fonction);
-                    //condition ajout de l'objet, si le nom existe déjà, msg erreur et demande à nouveau les attributs du nouvel employé
-                    if (hset.add(ouvrier)) {
-                    } else {
-                        System.out.println("Cet employé occupe déjà une fonction dans l'entreprise.\n");
-                        System.out.println("Veuillez rentrer à nouveau les informations sur l'employé.\n");
-                        i--;
-                    }
+                    Personnes ouvrier = new Ouvrier(numeroNational, prenom, nom, fonction);                                                 
+                    i = ajoutPersonneToList(ouvrier, hset)? i : i-1;//appel la méthode ajoutPersonne ToList                    
                     System.out.println("\n");
                     break;
                 case 5:
@@ -120,7 +96,25 @@ public class IntroDonneesSaveBin implements Prog {
         this.endProg(programme);//appel de la méthode fin de programme
     }
 
-    //****************************************Méthodes*****************************************************
+    //****************************************Méthodes*****************************************************  
+    
+    /**
+     * Méthode avec condition ajout de l'objet, si le nom existe déjà, msg erreur et demande à nouveau les attributs du nouvel employé.
+
+     * @param pers
+     * @param hset
+     * @return 
+     */   
+    private boolean ajoutPersonneToList(Personnes pers, HashSet<Personnes> hset) {
+        if (hset.add(pers)) {
+            return true;
+        } else {
+            System.out.println("Cet employé occupe déjà une fonction dans l'entreprise.\n");
+            System.out.println("Veuillez rentrer à nouveau les informations sur l'employé.\n");
+            return false;
+        }
+    }
+
     /**
      * Méthode qui parcour mon hashset via un itérateur et encode mes objets
      * Personnes dans un fichier binaire

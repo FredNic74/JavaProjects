@@ -1,1 +1,3 @@
-Numéro National: 1234, Prénom: sdthgsfdh, Nom: sfghjfgj, Fonction: Directeur, Portefeuille: Ca frôle l'indécence!, Job description: Dirige la société.
+Numéro National: Greg, Prénom: Hagel, Nom: Greg, Fonction: Secretaire, Job description: assiste le directeur.
+Numéro National: 687, Prénom: Fred, Nom: Nico, Fonction: Directeur, Portefeuille: Ca frôle l'indécence!, Job description: Dirige la société.
+Numéro National: 9879, Prénom: Momo, Nom: Lapelle, Fonction: Comptable, Job description: s'occupe de la facturation.
