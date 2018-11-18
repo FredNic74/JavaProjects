@@ -1,14 +1,14 @@
-package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollections;
+package be.iepscfjemelle.poolabo.nicolay.entreprise2withFactory;
 
 import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * Classe abstraite de l'objet Personnes, contenant les attributs d'une personnes.
+ * Classe abstraite de l'objet Personnes, contenant les attributs et méthodes d'une personnes.
  * 
  * @author Frederic Nicolay 2ème Bachelier Informatique
  */
-public abstract class Personnes implements IntPersonne, Serializable {
+public abstract class Personnes implements  Serializable {
 
     // ***********************   Attributs  ***************************************
     /**
@@ -91,10 +91,10 @@ public abstract class Personnes implements IntPersonne, Serializable {
     /**
      * Méthodes Overridé
      */
-    @Override
+    
     public abstract void joue();
 
-    @Override
+    
     public abstract void manger();
 
     /**
@@ -122,9 +122,6 @@ public abstract class Personnes implements IntPersonne, Serializable {
             return false;
         }      
         final Personnes other = (Personnes) obj;
-        if (!Objects.equals(this.nom, other.nom)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.nom, other.nom);
     }    
 }

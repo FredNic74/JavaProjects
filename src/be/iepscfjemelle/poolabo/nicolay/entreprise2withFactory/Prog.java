@@ -1,4 +1,4 @@
-package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollections;
+package be.iepscfjemelle.poolabo.nicolay.entreprise2withFactory;
 
 /**
  * Interface de mon programme principal, chaques classes qui en hérite, devra comporter

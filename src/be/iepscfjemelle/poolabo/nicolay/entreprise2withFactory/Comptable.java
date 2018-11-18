@@ -1,9 +1,9 @@
-package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollections;
+package be.iepscfjemelle.poolabo.nicolay.entreprise2withFactory;
 
 import java.io.Serializable;
 
 /**
- * Classe d'objet comptable, qui hérite de l'objet personnes (interface et abstrait)
+ * Classe d'objet comptable, qui hérite de l'objet personnes (abstrait)
  * 
  * @author Frederic Nicolay 2ème Bachelier Informatique
  */

@@ -1,4 +1,4 @@
-package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollections;
+package be.iepscfjemelle.poolabo.nicolay.entreprise2withFactory;
 
 /**
  * Classe starter, qui contient la méthode main, qui crée l'objet MenuDepart

@@ -1,4 +1,4 @@
-package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollections;
+package be.iepscfjemelle.poolabo.nicolay.entreprise2withFactory;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 /**
  * Classe héritant de l'interface Prog, qui à partir d'un menu secondaire, crée
- * des objets Personnes et leurs attributs, (fonctions d'après un hashmap).
+ * des objets Personnes et leurs attributs via un factory, (fonctions d'après un hashmap).
  * Places ces objets Personnes dans un hashset, pour éviter les doublons.
  * Ensuite, parcours le hashset, sérialise chaque ojets et l'enregistre dans un
  * fichier binaire. Propose un retour au menu principal à la fin.
@@ -40,12 +40,12 @@ public class IntroDonneesSaveBin implements Prog {
 
         ObjectOutputStream sortie = null;
 
-        int nbr = nombreEmploye();//nombre d'employé dans l'entreprise pour définir le nombre de boucles
+        int nbr = nombreEmploye();//nombre d'employé dans l'entreprise pour définir le nombre de boucles      
 
         for (int i = 0; i < nbr; i++) {
             int choix = menuFonction();//Appel de ma méthode MenuFonction    
             //Lecture des données de chaque employé dans la console pour remplir les attributs de chaque objet Personnes
-            System.out.println("Entrer les informations demandée sur l'ouvrier:  ");
+            System.out.println("Entrer les informations demandée sur l'employé:  ");
             System.out.print("Numéro National: ");
             String numeroNational = Clavier.lireString();
             System.out.print("Prénom: ");
@@ -61,23 +61,23 @@ public class IntroDonneesSaveBin implements Prog {
                     System.exit(0);
                     break;
                 case 1:
-                    Personnes directeur = new Directeur(numeroNational, prenom, nom, fonction);
-                    i = ajoutPersonneToList(directeur, hset)? i : i-1;//appel la méthode ajoutPersonne ToList                     
+                    Directeur directeur = (Directeur) PersonnesFactory.getPers(numeroNational, prenom, nom, fonction);//utilisation du factory                  
+                    i = ajoutPersonneToList(directeur, hset)? i : i-1;//appel la méthode ajoutPersonne ToList avec ternaire                 
                     System.out.println("\n");
                     break;
                 case 2:
-                    Personnes comptable = new Comptable(numeroNational, prenom, nom, fonction);
-                    i = ajoutPersonneToList(comptable, hset)? i : i-1;//appel la méthode ajoutPersonne ToList                    
+                    Comptable comptable = (Comptable) PersonnesFactory.getPers(numeroNational, prenom, nom, fonction);//utilisation du factory
+                    i = ajoutPersonneToList(comptable, hset) ? i : i - 1;//appel la méthode ajoutPersonne ToList avec ternaire                  
                     System.out.println("\n");
                     break;
                 case 3:
-                    Personnes secretaire = new Secretaire(numeroNational, prenom, nom, fonction);
-                    i = ajoutPersonneToList(secretaire, hset)? i : i-1;//appel la méthode ajoutPersonne ToList                    
+                    Secretaire secretaire = (Secretaire) PersonnesFactory.getPers(numeroNational, prenom, nom, fonction);//utilisation du factory                
+                    i = ajoutPersonneToList(secretaire, hset) ? i : i - 1;//appel la méthode ajoutPersonne ToList avec ternaire                
                     System.out.println("\n");
                     break;
                 case 4:
-                    Personnes ouvrier = new Ouvrier(numeroNational, prenom, nom, fonction);                                                 
-                    i = ajoutPersonneToList(ouvrier, hset)? i : i-1;//appel la méthode ajoutPersonne ToList                    
+                    Ouvrier ouvrier = (Ouvrier) PersonnesFactory.getPers(numeroNational, prenom, nom, fonction);//utilisation du factory               
+                    i = ajoutPersonneToList(ouvrier, hset) ? i : i - 1;//appel la méthode ajoutPersonne ToList avec ternaire                   
                     System.out.println("\n");
                     break;
                 case 5:
@@ -97,14 +97,14 @@ public class IntroDonneesSaveBin implements Prog {
     }
 
     //****************************************Méthodes*****************************************************  
-    
     /**
-     * Méthode avec condition ajout de l'objet, si le nom existe déjà, msg erreur et demande à nouveau les attributs du nouvel employé.
-
+     * Méthode avec condition ajout de l'objet, si le nom existe déjà, msg
+     * erreur et demande à nouveau les attributs du nouvel employé.
+     *
      * @param pers
      * @param hset
-     * @return 
-     */   
+     * @return
+     */
     private boolean ajoutPersonneToList(Personnes pers, HashSet<Personnes> hset) {
         if (hset.add(pers)) {
             return true;

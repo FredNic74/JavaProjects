@@ -1,9 +1,9 @@
-package be.iepscfjemelle.poolabo.nicolay.entreprise2withcollections;
+package be.iepscfjemelle.poolabo.nicolay.entreprise2withFactory;
 
 import java.io.Serializable;
 
 /**
- * Classe d'objet directeur, qui hérite de l'objet personnes (interface et abstrait)
+ * Classe d'objet directeur, qui hérite de l'objet personnes (abstrait)
  * 
  * @author Frederic Nicolay 2ème Bachelier Informatique
  */
@@ -29,7 +29,7 @@ public class Directeur extends Personnes implements Serializable{
      * @param nom
      * @param fonction 
      */
-    Directeur(String numeroNational, String prenom, String nom, String fonction) {
+    public Directeur(String numeroNational, String prenom, String nom, String fonction) {
         super(numeroNational, prenom, nom, fonction);
     }
     
