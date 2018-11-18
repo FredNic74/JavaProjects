@@ -8,18 +8,18 @@ package be.iepscfjemelle.poolabo.nicolay.entreprise2withFactory;
  */
 public class PersonnesFactory {
 
-    static Personnes getPers(String numeroNational, String prenom, String nom, String fonction) {
+    public static Personnes getPers(String numeroNational, String prenom, String nom, String fonction) {
         if (fonction == null) {
             return null;
         }
         if (fonction.equalsIgnoreCase("DIRECTEUR")) {
-            return new Directeur(numeroNational, nom, prenom, fonction);
+            return new Directeur(numeroNational, prenom, nom, fonction);
         } else if (fonction.equalsIgnoreCase("COMPTABLE")) {
-            return new Comptable(numeroNational, nom, prenom, fonction);
+            return new Comptable(numeroNational, prenom, nom, fonction);
         } else if (fonction.equalsIgnoreCase("SECRETAIRE")) {
-            return new Secretaire(numeroNational, nom, prenom, fonction);
+            return new Secretaire(numeroNational, prenom, nom, fonction);
         } else if (fonction.equalsIgnoreCase("OUVRIER")) {
-            return new Ouvrier(numeroNational, nom, prenom, fonction);
+            return new Ouvrier(numeroNational, prenom, nom, fonction);
         }
         return null;
     }
