@@ -1,3 +1,4 @@
-Numéro National: 1235, Prénom: Jesuis, Nom: Leboss, Fonction: Directeur, Portefeuille: Ca frôle l'indécence!, Job description: Dirige la société.
-Numéro National: 4685, Prénom: Mimi Lapfrappa, Nom: lol, Fonction: Secretaire, Job description: assiste le directeur.
-Numéro National: 45865, Prénom: Gege, Nom: Lapelle, Fonction: Ouvrier, Job description: travail sur chantier.
+Numéro National: 4684, Prénom: Mimi, Nom: Lafrappe, Fonction: Secretaire, Job description: assiste le directeur.
+Numéro National: 6546, Prénom: Greg, Nom: Hagel, Fonction: Comptable, Job description: s'occupe de la facturation.
+Numéro National: 1354, Prénom: Fred, Nom: Nico, Fonction: Directeur, Portefeuille: Ca frôle l'indécence!, Job description: Dirige la société.
+Numéro National: 16546+, Prénom: Gege, Nom: Lapelle, Fonction: Ouvrier, Job description: travail sur chantier.

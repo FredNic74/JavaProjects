@@ -28,8 +28,8 @@ public class AffichageConsole implements Prog {
     protected boolean flag = false;
 
     /**
-     * Méthode qui parcour mon fichier binaire et affiche le contenu dans la
-     * console
+     * Méthode qui parcour mon fichier binaire et affiche le contenu dans la console
+     * 
      */
     @Override
     public void execute(MenuDepart programme) {
@@ -50,7 +50,7 @@ public class AffichageConsole implements Prog {
      * @throws FileNotFoundException
      * @throws IOException
      */
-    private void readFile() throws FileNotFoundException, IOException {
+    public void readFile() throws FileNotFoundException, IOException {
         ObjectInputStream entree = null;
 
         System.out.println("================================================================");
@@ -83,6 +83,7 @@ public class AffichageConsole implements Prog {
      *
      * @param programme
      */
+    @Override
     public void endProg(MenuDepart programme) {
         System.out.println("Appuyer sur une touche pour retourner au menu.");
         String str = Clavier.lireString();
