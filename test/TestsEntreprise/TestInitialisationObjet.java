@@ -1,88 +1,80 @@
 package TestsEntreprise;
 
-import be.iepscfjemelle.poolabo.nicolay.entreprise2withFactory.Comptable;
-import be.iepscfjemelle.poolabo.nicolay.entreprise2withFactory.Directeur;
-import be.iepscfjemelle.poolabo.nicolay.entreprise2withFactory.Ouvrier;
 import be.iepscfjemelle.poolabo.nicolay.entreprise2withFactory.Personnes;
 import be.iepscfjemelle.poolabo.nicolay.entreprise2withFactory.PersonnesFactory;
-import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
-
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
+
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)//permet de choisir l'ordre des méthodes
 
 /**
+ * Class qui test si les différents objet personnes s'initialise bien avec leurs attributs
  *
  * @author Frederic Nicolay 2ème Bachelier Informatique
  */
 public class TestInitialisationObjet {
-   
-        public String fonction1 = "directeur";
-        public String fonction2 = "comptable";
-        public String fonction3 = "secretaire";
-        public String fonction4 = "ouvrier";
-        public String idDir = "1234";
-        public String prenomDir = "Fred";
-        public String nomDir = "Nicolay";   
-        public String idCom = "4567";
-        public String prenomCom = "Jecompte";
-        public String nomCOm = "Bien";  
-        public String idSec = "9874";
-        public String prenomSec = "Mimi";
-        public String nomSec = "Lafrappe";  
-        public String idOuv = "4561";
-        public String prenomOuv = "Gege";
-        public String nomOuv = "Lapelle";  
-        ArrayList<Personnes> al = new ArrayList();
-        
+    //déclaration et initialisation des différentes variables
+
+    public String fonction1 = "directeur";
+    public String fonction2 = "comptable";
+    public String fonction3 = "secretaire";
+    public String fonction4 = "ouvrier";
+    public String idDir = "1234";
+    public String prenomDir = "Fred";
+    public String nomDir = "Nicolay";
+    public String idCom = "4567";
+    public String prenomCom = "Jecompte";
+    public String nomCom = "Bien";
+    public String idSec = "9874";
+    public String prenomSec = "Mimi";
+    public String nomSec = "Lafrappe";
+    public String idOuv = "4561";
+    public String prenomOuv = "Gege";
+    public String nomOuv = "Lapelle";
+
+    //Test initialisation d'un directeur en testant tout ses attributs
     @Test
-    public void TestInitDirecteur() {    
-        //PersonnesFactory pers= new PersonnesFactory();
-        Personnes directeur = PersonnesFactory.getPers(idDir, prenomDir, nomDir, fonction1);
-        Personnes dirlo = new Directeur();
-        al.add(directeur);
-        dirlo.setNumeroNational("1234");
-        dirlo.setPrenom("Fred");
-        dirlo.setNom("Nicolay");
-        dirlo.setFonction("directeur");
-        assertEquals(directeur, dirlo);
+    public void T0_TestInitDirecteur() {
+        Personnes dirlo = PersonnesFactory.getPers(idDir, prenomDir, nomDir, fonction1);
+        assertEquals( dirlo.getNumeroNational(),"1234");
+        assertEquals( dirlo.getPrenom(),"Fred");
+        assertEquals( dirlo.getNom(),"Nicolay");
+        assertEquals( dirlo.getFonction(),"directeur");  
+        System.out.println("T0 : Initialisation directeur OK.");
+    }  
+
+    //Test initialisation d'un comptable en testant tout ses attributs
+    @Test
+    public void T1_TestInitComptable() {
+        Personnes compt = PersonnesFactory.getPers(idCom, prenomCom, nomCom, fonction2);
+        assertEquals( compt.getNumeroNational(),"4567");
+        assertEquals( compt.getPrenom(),"Jecompte");
+        assertEquals( compt.getNom(),"Bien");
+        assertEquals( compt.getFonction(),"comptable");
+        System.out.println("T1 : Initialisation comptable OK.");
     }
-    
+
+    //Test initialisation d'un secretaire en testant tout ses attributs
     @Test
-    public void TestInitComptable() {    
-        //PersonnesFactory pers= new PersonnesFactory();
-        Personnes comptable = PersonnesFactory.getPers(idCom, prenomCom, nomCOm, fonction2);
-        Personnes compt = new Comptable();
-        al.add(comptable);
-        compt.setNumeroNational("4567");
-        compt.setPrenom("Jecompte");
-        compt.setNom("Bien");
-        compt.setFonction("comptable");
-        assertEquals(comptable, compt);
+    public void T2_TestInitSecretaire() {
+        Personnes secr = PersonnesFactory.getPers(idSec, prenomSec, nomSec, fonction3);
+        assertEquals( secr.getNumeroNational(),"9874");
+        assertEquals( secr.getPrenom(),"Mimi");
+        assertEquals( secr.getNom(),"Lafrappe");
+        assertEquals( secr.getFonction(),"secretaire");
+        System.out.println("T2 : Initialisation secretaire OK.");
     }
-    
+
+    //Test initialisation d'un ouvrier en testant tout ses attributs
     @Test
-    public void TestInitSecretaire() {    
-        //PersonnesFactory pers= new PersonnesFactory();
-        Personnes Secretaire = PersonnesFactory.getPers(idSec, prenomSec, nomSec, fonction3);
-        Personnes Secr = new Directeur();
-        al.add(Secretaire);
-        Secr.setNumeroNational("9874");
-        Secr.setPrenom("Mimi");
-        Secr.setNom("Lafrappe");
-        Secr.setFonction("secretaire");
-        assertEquals(Secretaire, Secr);
-    }
-    
-    @Test
-    public void TestInitOuvrier() {    
-        //PersonnesFactory pers= new PersonnesFactory();
-        Personnes ouvrier = PersonnesFactory.getPers(idOuv, prenomOuv, nomOuv, fonction4);
-        Personnes ouv = new Ouvrier();
-        al.add(ouvrier);
-        ouv.setNumeroNational("4561");
-        ouv.setPrenom("Gege");
-        ouv.setNom("Lapelle");
-        ouv.setFonction("ouvrier");
-        assertEquals(ouvrier, ouv);
+    public void T3_TestInitOuvrier() {
+        Personnes ouvr = PersonnesFactory.getPers(idOuv, prenomOuv, nomOuv, fonction4);
+        assertEquals( ouvr.getNumeroNational(),"4561");
+        assertEquals( ouvr.getPrenom(),"Gege");
+        assertEquals( ouvr.getNom(),"Lapelle");
+        assertEquals( ouvr.getFonction(),"ouvrier");
+        System.out.println("T3 : Initialisation ouvrier OK.");
     }
 }

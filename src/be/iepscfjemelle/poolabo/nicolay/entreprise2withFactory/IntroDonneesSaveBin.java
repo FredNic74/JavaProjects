@@ -105,7 +105,7 @@ public class IntroDonneesSaveBin implements Prog {
      * @param hset
      * @return
      */
-    private boolean ajoutPersonneToList(Personnes pers, HashSet<Personnes> hset) {
+    public boolean ajoutPersonneToList(Personnes pers, HashSet<Personnes> hset) {
         if (hset.add(pers)) {
             return true;
         } else {
@@ -123,7 +123,7 @@ public class IntroDonneesSaveBin implements Prog {
      * @throws FileNotFoundException
      * @throws IOException
      */
-    public static void saveDataHset(HashSet<Personnes> hs) throws FileNotFoundException, IOException {
+    public void saveDataHset(HashSet<Personnes> hs) throws FileNotFoundException, IOException {
         // Création d'un itérateur
         Iterator<Personnes> iter = hs.iterator();
         ObjectOutputStream sortie = new ObjectOutputStream(new FileOutputStream("fichier.dat"));
@@ -132,6 +132,7 @@ public class IntroDonneesSaveBin implements Prog {
             Personnes empl = iter.next();
             sortie.writeObject(empl);
         }
+        sortie.close();
         System.out.println();
     }
 
