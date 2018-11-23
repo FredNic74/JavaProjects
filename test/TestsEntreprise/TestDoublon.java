@@ -1,15 +1,21 @@
 package TestsEntreprise;
 
+import be.iepscfjemelle.poolabo.nicolay.entreprise2withFactory.IntroDonneesSaveBin;
 import be.iepscfjemelle.poolabo.nicolay.entreprise2withFactory.Personnes;
 import be.iepscfjemelle.poolabo.nicolay.entreprise2withFactory.PersonnesFactory;
 import java.util.HashSet;
-import org.junit.BeforeClass;
+import org.junit.Assert;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 /**
+ * Class qui test l'introduction de doublon
  *
  * @author Frederic Nicolay 2ème Bachelier Informatique
  */
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)//permet de choisir l'ordre des méthodes
+
 public class TestDoublon {
 
     HashSet<Personnes> hset = new HashSet<>();
@@ -17,58 +23,60 @@ public class TestDoublon {
     public String fonction2 = "comptable";
     public String fonction3 = "secretaire";
     public String fonction4 = "ouvrier";
-    public String idDir = "1234";
-    public String prenomDir = "Fred";
-    public String nomDir = "Nicolay";
-    public String idCom = "4567";
-    public String prenomCom = "Jecompte";
-    public String nomCOm = "Bien";
-    public String idSec = "9874";
-    public String prenomSec = "Mimi";
-    public String nomSec = "Lafrappe";
-    public String idOuv = "4561";
-    public String prenomOuv = "Gege";
-    public String nomOuv = "Lapelle";
+    public String id = "1234";
+    public String prenom = "Fred";
+    public String nom = "Nicolay";
 
-    @BeforeClass
-    private boolean ajoutPersonneToList(Personnes pers, HashSet<Personnes> hset) {
-        if (hset.add(pers)) {
-            return true;
-        } else {
-            System.out.println("Doublon.\n");
-            return false;
-        }
+    /*Test qui crée un objet de ma class IntroDonneesSaveBin , si la variable booléenne de la deuxième 
+    personne est False, alors c'est un doublon.*/
+    @Test
+    public void T0_TestDuplicateDirecteur() {
+        IntroDonneesSaveBin obj = new IntroDonneesSaveBin();
+        Personnes directeur = PersonnesFactory.getPers(id, prenom, nom, fonction1);
+        Boolean ajout1 = obj.ajoutPersonneToList(directeur, hset);
+        Personnes directeur2 = PersonnesFactory.getPers(id, prenom, nom, fonction1);
+        Boolean ajout2 = obj.ajoutPersonneToList(directeur2, hset);
+        Assert.assertFalse(ajout2);//Test si ajout2 est faux
+        System.out.println("T0 : Deuxième directeur pas ajouté, car doublon.");
+        hset = new HashSet<>();//remise à zéro de ma hashset
+    }
+    
+    //idem que premier test mais pour un comptable
+    @Test
+    public void T1_TestDuplicateComptable() {
+        IntroDonneesSaveBin obj = new IntroDonneesSaveBin();
+        Personnes comptabe = PersonnesFactory.getPers(id, prenom, nom, fonction2);
+        Boolean ajout1 = obj.ajoutPersonneToList(comptabe, hset);
+        Personnes comptabe2 = PersonnesFactory.getPers(id, prenom, nom, fonction2);
+        Boolean ajout2 = obj.ajoutPersonneToList(comptabe2, hset);
+        Assert.assertFalse(ajout2);//Test si ajout2 est faux
+        System.out.println("T1 : Deuxième comptable pas ajouté, car doublon.");
+        hset = new HashSet<>();//remise à zéro de ma hashset
     }
 
+    //idem que premier test mais pour un secretaire
     @Test
-    public void TestDuplicateDirecteur(Personnes p, HashSet<Personnes> hset) {
-        Personnes directeur = PersonnesFactory.getPers(idDir, prenomDir, nomDir, fonction1);
-        ajoutPersonneToList(directeur, hset);
-        Personnes directeur2 = PersonnesFactory.getPers(idDir, prenomDir, nomDir, fonction1);
-        ajoutPersonneToList(directeur2, hset);
+    public void T2_TestDuplicateSecretaire() {
+        IntroDonneesSaveBin obj = new IntroDonneesSaveBin();
+        Personnes secretaire = PersonnesFactory.getPers(id, prenom, nom, fonction3);
+        Boolean ajout1 = obj.ajoutPersonneToList(secretaire, hset);
+        Personnes secretaire2 = PersonnesFactory.getPers(id, prenom, nom, fonction3);
+        Boolean ajout2 = obj.ajoutPersonneToList(secretaire2, hset);
+        Assert.assertFalse(ajout2);//Test si ajout2 est faux
+        System.out.println("T0 : Deuxième secretaire pas ajouté, car doublon.");
+        hset = new HashSet<>();//remise à zéro de ma hashset
     }
 
+    //idem que premier test mais pour un ouvrier
     @Test
-    public void TestDuplicateComptable(Personnes p, HashSet<Personnes> hset) {
-        Personnes comptable = PersonnesFactory.getPers(idCom, prenomCom, nomCOm, fonction2);
-        ajoutPersonneToList(comptable, hset);
-        Personnes comptable2 = PersonnesFactory.getPers(idCom, prenomCom, nomCOm, fonction2);
-        ajoutPersonneToList(comptable2, hset);
-    }
-
-    @Test
-    public void TestDuplicateSecretaire(Personnes p, HashSet<Personnes> hset) {
-        Personnes Secretaire = PersonnesFactory.getPers(idSec, prenomSec, nomSec, fonction3);
-        ajoutPersonneToList(Secretaire, hset);
-        Personnes Secretaire2 = PersonnesFactory.getPers(idSec, prenomSec, nomSec, fonction3);
-        ajoutPersonneToList(Secretaire2, hset);
-    }
-
-    @Test
-    public void TestDuplicateOuvrier(Personnes p, HashSet<Personnes> hset) {
-        Personnes ouvrier = PersonnesFactory.getPers(idOuv, prenomOuv, nomOuv, fonction4);
-        ajoutPersonneToList(ouvrier, hset);
-        Personnes ouvrier2 = PersonnesFactory.getPers(idOuv, prenomOuv, nomOuv, fonction4);
-        ajoutPersonneToList(ouvrier2, hset);
+    public void T3_TestDuplicateOuvrier() {
+        IntroDonneesSaveBin obj = new IntroDonneesSaveBin();
+        Personnes ouvrier = PersonnesFactory.getPers(id, prenom, nom, fonction4);
+        Boolean ajout1 = obj.ajoutPersonneToList(ouvrier, hset);
+        Personnes ouvrier2 = PersonnesFactory.getPers(id, prenom, nom, fonction4);
+        Boolean ajout2 = obj.ajoutPersonneToList(ouvrier2, hset);
+        Assert.assertFalse(ajout2);//Test si ajout2 est faux
+        System.out.println("T0 : Deuxième ouvrier pas ajouté, car doublon.");
+        hset = new HashSet<>();//remise à zéro de ma hashset
     }
 }
