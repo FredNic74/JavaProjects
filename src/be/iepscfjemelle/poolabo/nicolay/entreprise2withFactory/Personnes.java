@@ -104,7 +104,7 @@ public abstract class Personnes implements  Serializable {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 61 * hash + Objects.hashCode(this.nom);
+        hash = 61 * hash + Objects.hashCode(this.numeroNational);
         return hash;
     }
     
@@ -122,6 +122,6 @@ public abstract class Personnes implements  Serializable {
             return false;
         }      
         final Personnes other = (Personnes) obj;
-        return Objects.equals(this.nom, other.nom);
+        return Objects.equals(this.numeroNational, other.numeroNational);
     }    
 }
